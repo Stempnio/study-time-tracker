@@ -31,6 +31,9 @@ struct AddNewSessionView: View {
                 session.name = sessionName
                 
                 try? moc.save()
+                
+                currentLearningSession.intervals = []
+                
             }
         }
         .padding()
