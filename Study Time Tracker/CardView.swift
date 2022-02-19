@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CardView: View {
     
-    let dailyLearn: DailyLearn
+    let session: LearningSessionModel
     
     var body: some View {
         VStack {
-            Text(dateToDayMonthYear(date: dailyLearn.date))
+            Text(dateToDayMonthYear(date: session.startDate!))
                 .font(.headline)
             Spacer()
             
@@ -22,7 +22,7 @@ struct CardView: View {
                     Text("TOTAL TIME:")
                         .bold()
                     Spacer()
-                    Text(dailyLearn.totalDailyTimeShortString)
+                    Text(secondsToHoursMinutesSecondsString(Int(session.totalTime), short: true))
                     Spacer()
                 }
                 
@@ -30,7 +30,7 @@ struct CardView: View {
                     Text("INTERVALS:")
                         .bold()
                     Spacer()
-                    Text("\(dailyLearn.intervals.count)")
+                    Text("\(session.numberOfIntervals)")
                     Spacer()
                     
                 }
@@ -40,10 +40,10 @@ struct CardView: View {
         .padding(.horizontal)
     }
 }
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(dailyLearn: DailyLearn(intervals: []))
-            .previewLayout(.fixed(width: 400, height: 70))
-    }
-}
+//
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView()
+//            .previewLayout(.fixed(width: 400, height: 70))
+//    }
+//}

@@ -11,10 +11,9 @@ struct TimerViewLower: View {
     
     var isCounterPresented: Bool
     var isPresentingHistoryView: Bool
-    var dailyLearns: [DailyLearn]
+    var learningSessions: [LearningSession]
     
-    @ObservedObject var todayDailyLearn: DailyLearn
-//    @ObservedObject var appAppearance: AppAppearance
+    @ObservedObject var currentLearningSession: LearningSession
     @ObservedObject var currentInterval: Interval
     
     var body: some View {
@@ -32,12 +31,9 @@ struct TimerViewLower: View {
                         Text("TIME ELAPSED")
                             .padding(8)
                             .font(.largeTitle)
-                        
-                            //.foregroundColor(appAppearance.appTheme.mainColor)
                             .border(Color.primary, width: 2)
                         Text(currentInterval.elapsedTimeFormattedString)
                             .font(.title2)
-                            //.foregroundColor(appAppearance.appTheme.mainColor)
                         
                         
                     }
@@ -46,12 +42,12 @@ struct TimerViewLower: View {
             } else {
                 VStack {
                     
-                    Text("TOTAL LEARNING TIME TODAY:")
+                    Text("TOTAL LEARNING TIME:")
                         .bold()
-                    Text("\(todayDailyLearn.totalDailyTimeString)")
+                    Text("\(currentLearningSession.totalDailyTimeString)")
                     List {
-                        Section("Today's learning intervals") {
-                            ForEach(todayDailyLearn.intervals) { interval in
+                        Section("Sessions' learning intervals") {
+                            ForEach(currentLearningSession.intervals) { interval in
                                 VStack(alignment: .leading) {
                                     Text(interval.totalTimeFormattedString)
                                     Spacer()
@@ -60,13 +56,12 @@ struct TimerViewLower: View {
                                 }
                             }
                             .onDelete { indexSet in
-                                todayDailyLearn.intervals.remove(atOffsets: indexSet)
+                                currentLearningSession.intervals.remove(atOffsets: indexSet)
                             }
                         }
                     }
                 }
                 .foregroundColor(.primary)
-                //.foregroundColor(appAppearance.appTheme.accentColor)
                 
             }
         }
@@ -79,7 +74,7 @@ struct TimerViewLower_Previews: PreviewProvider {
     static var previews: some View {
         TimerViewLower(isCounterPresented: false,
                        isPresentingHistoryView: false,
-                       dailyLearns: [], todayDailyLearn: DailyLearn(intervals: Interval.sampleIntervals),
+                       learningSessions: [], currentLearningSession: LearningSession(intervals: Interval.sampleIntervals),
                        currentInterval: Interval())
 
     }

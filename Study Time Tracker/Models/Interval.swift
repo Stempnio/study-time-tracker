@@ -10,10 +10,10 @@ import Foundation
 class Interval: ObservableObject, Identifiable {
     
     let id: UUID
-    private var intervalStarted = false
     var start: Date?
     private var end: Date?
     
+    @Published var intervalStarted = false
     @Published var elapsedTime: Int
 
     var totalTime: Double = 0

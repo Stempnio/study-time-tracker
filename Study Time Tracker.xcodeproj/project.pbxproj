@@ -7,36 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6328B01227BEA93D00557165 /* DailyLearnHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328B01127BEA93D00557165 /* DailyLearnHistory.swift */; };
+		6328B01227BEA93D00557165 /* SessionsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328B01127BEA93D00557165 /* SessionsHistory.swift */; };
 		6328B01427BEA9F100557165 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328B01327BEA9F100557165 /* CardView.swift */; };
 		635B78F627C129DA00B32E66 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B78F527C129DA00B32E66 /* Utils.swift */; };
-		636907B127BF98BF00BCC9DC /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636907B027BF98BF00BCC9DC /* AppAppearance.swift */; };
+		635B78FB27C166DF00B32E66 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 635B78F927C166DF00B32E66 /* CoreDataModel.xcdatamodeld */; };
+		635B78FD27C17CDE00B32E66 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B78FC27C17CDE00B32E66 /* DataController.swift */; };
+		635B78FF27C188D300B32E66 /* AddNewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B78FE27C188D300B32E66 /* AddNewSessionView.swift */; };
 		636907B327BFC65C00BCC9DC /* TimerViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */; };
 		636907B527BFC66900BCC9DC /* TimerViewLower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636907B427BFC66900BCC9DC /* TimerViewLower.swift */; };
-		63D1B6DA27BD294400B57A11 /* First_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6D927BD294400B57A11 /* First_AppApp.swift */; };
+		63D1B6DA27BD294400B57A11 /* StudyTimeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */; };
 		63D1B6DC27BD294400B57A11 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6DB27BD294400B57A11 /* TimerView.swift */; };
 		63D1B6DE27BD294500B57A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D1B6DD27BD294500B57A11 /* Assets.xcassets */; };
 		63D1B6E127BD294500B57A11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D1B6E027BD294500B57A11 /* Preview Assets.xcassets */; };
-		63D1B6E927BD299900B57A11 /* DailyLearn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6E827BD299900B57A11 /* DailyLearn.swift */; };
+		63D1B6E927BD299900B57A11 /* LearningSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6E827BD299900B57A11 /* LearningSession.swift */; };
 		63D1B6EB27BD2B5C00B57A11 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6EA27BD2B5C00B57A11 /* Interval.swift */; };
-		63D1B6ED27BD519700B57A11 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6EC27BD519700B57A11 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6328B01127BEA93D00557165 /* DailyLearnHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLearnHistory.swift; sourceTree = "<group>"; };
+		6328B01127BEA93D00557165 /* SessionsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsHistory.swift; sourceTree = "<group>"; };
 		6328B01327BEA9F100557165 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		635B78F527C129DA00B32E66 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		636907B027BF98BF00BCC9DC /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		635B78FA27C166DF00B32E66 /* DailyLearnModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DailyLearnModel.xcdatamodel; sourceTree = "<group>"; };
+		635B78FC27C17CDE00B32E66 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		635B78FE27C188D300B32E66 /* AddNewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSessionView.swift; sourceTree = "<group>"; };
 		636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCircle.swift; sourceTree = "<group>"; };
 		636907B427BFC66900BCC9DC /* TimerViewLower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewLower.swift; sourceTree = "<group>"; };
 		63D1B6D627BD294400B57A11 /* Study Time Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Time Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63D1B6D927BD294400B57A11 /* First_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First_AppApp.swift; sourceTree = "<group>"; };
+		63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTimeTrackerApp.swift; sourceTree = "<group>"; };
 		63D1B6DB27BD294400B57A11 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		63D1B6DD27BD294500B57A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63D1B6E027BD294500B57A11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		63D1B6E827BD299900B57A11 /* DailyLearn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLearn.swift; sourceTree = "<group>"; };
+		63D1B6E827BD299900B57A11 /* LearningSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSession.swift; sourceTree = "<group>"; };
 		63D1B6EA27BD2B5C00B57A11 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
-		63D1B6EC27BD519700B57A11 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +72,16 @@
 			isa = PBXGroup;
 			children = (
 				63D1B6E727BD296600B57A11 /* Models */,
-				63D1B6D927BD294400B57A11 /* First_AppApp.swift */,
+				63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */,
 				6328B01327BEA9F100557165 /* CardView.swift */,
 				63D1B6DB27BD294400B57A11 /* TimerView.swift */,
 				636907B427BFC66900BCC9DC /* TimerViewLower.swift */,
 				636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */,
-				6328B01127BEA93D00557165 /* DailyLearnHistory.swift */,
+				6328B01127BEA93D00557165 /* SessionsHistory.swift */,
+				635B78FE27C188D300B32E66 /* AddNewSessionView.swift */,
 				63D1B6DD27BD294500B57A11 /* Assets.xcassets */,
 				63D1B6DF27BD294500B57A11 /* Preview Content */,
+				635B78F927C166DF00B32E66 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = "Study Time Tracker";
 			sourceTree = "<group>";
@@ -93,11 +97,10 @@
 		63D1B6E727BD296600B57A11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				63D1B6E827BD299900B57A11 /* DailyLearn.swift */,
+				63D1B6E827BD299900B57A11 /* LearningSession.swift */,
 				63D1B6EA27BD2B5C00B57A11 /* Interval.swift */,
-				63D1B6EC27BD519700B57A11 /* Theme.swift */,
-				636907B027BF98BF00BCC9DC /* AppAppearance.swift */,
 				635B78F527C129DA00B32E66 /* Utils.swift */,
+				635B78FC27C17CDE00B32E66 /* DataController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,16 +176,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6328B01427BEA9F100557165 /* CardView.swift in Sources */,
-				63D1B6E927BD299900B57A11 /* DailyLearn.swift in Sources */,
-				6328B01227BEA93D00557165 /* DailyLearnHistory.swift in Sources */,
+				63D1B6E927BD299900B57A11 /* LearningSession.swift in Sources */,
+				6328B01227BEA93D00557165 /* SessionsHistory.swift in Sources */,
 				63D1B6DC27BD294400B57A11 /* TimerView.swift in Sources */,
+				635B78FF27C188D300B32E66 /* AddNewSessionView.swift in Sources */,
 				636907B527BFC66900BCC9DC /* TimerViewLower.swift in Sources */,
-				63D1B6ED27BD519700B57A11 /* Theme.swift in Sources */,
+				635B78FD27C17CDE00B32E66 /* DataController.swift in Sources */,
+				635B78FB27C166DF00B32E66 /* CoreDataModel.xcdatamodeld in Sources */,
 				63D1B6EB27BD2B5C00B57A11 /* Interval.swift in Sources */,
 				635B78F627C129DA00B32E66 /* Utils.swift in Sources */,
 				636907B327BFC65C00BCC9DC /* TimerViewCircle.swift in Sources */,
-				63D1B6DA27BD294400B57A11 /* First_AppApp.swift in Sources */,
-				636907B127BF98BF00BCC9DC /* AppAppearance.swift in Sources */,
+				63D1B6DA27BD294400B57A11 /* StudyTimeTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +388,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		635B78F927C166DF00B32E66 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				635B78FA27C166DF00B32E66 /* DailyLearnModel.xcdatamodel */,
+			);
+			currentVersion = 635B78FA27C166DF00B32E66 /* DailyLearnModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 63D1B6CE27BD294400B57A11 /* Project object */;
 }

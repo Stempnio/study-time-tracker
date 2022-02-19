@@ -9,44 +9,35 @@ import SwiftUI
 
 struct TimerView: View {
     
-    //    @StateObject var appAppearance = AppAppearance()
-    @StateObject var currentInterval: Interval = Interval()
-    @StateObject var todayDailyLearn: DailyLearn = DailyLearn(intervals: [])
+    @ObservedObject var currentInterval: Interval
+    @ObservedObject var currentLearningSession: LearningSession
     
-    @State private var dailyLearns: [DailyLearn] = DailyLearn.sampleData
+    @State private var learningSessions: [LearningSession] = LearningSession.sampleData
     @State private var isCounterPresented = false
     @State private var isPresentingHistoryView = false
-    @State private var isFinishLearningPresented = false
+    @State private var isEndSessionPresented = false
+    @State private var showingCounterNotStoppedAlert = false
     
     
     var body: some View {
         ZStack {
             
             Color.primary.colorInvert().ignoresSafeArea()
-            //            appAppearance.appTheme.mainColor
-            //                .ignoresSafeArea()
-            
-            //            VStack {
-            //
-            //                //                HStack {
-            //                //                    Button(action: {
-            //                //                        appAppearance.toggle()
-            //                //                    }) {
-            //                //                        Label("Change theme", systemImage: "paintpalette")
-            //                //                    }
-            //
-            //                Spacer()
-            //
-            //                Button(action: {
-            //                    isPresentingHistoryView = true
-            //                }) {
-            //                    Label("History", systemImage: "clock")
-            //                }
-            //            }
-            //            .padding(.horizontal)
-            
+
             VStack {
                 HStack {
+                    Button(action: {
+                        isEndSessionPresented = true
+                    }) {
+//                        if(currentInterval.intervalStarted) {
+//                            showingCounterNotStoppedAlert.toggle()
+//                        } else {
+                            Label("End session", systemImage: "stop.circle")
+                                .font(.title3)
+//                        }
+                    }
+                    // add alert if session is not started or end it if its running
+                    
                     Spacer()
                     
                     Button(action: {
@@ -59,21 +50,27 @@ struct TimerView: View {
                 .padding(.horizontal)
                 
                 TimerViewCircle(isCounterPresented: $isCounterPresented,
-                                todayDailyLearn: todayDailyLearn,
+                                currentLearningSession: currentLearningSession,
                                 currentInterval: currentInterval)
                 
                 Spacer()
                 
                 TimerViewLower(isCounterPresented: isCounterPresented,
                                isPresentingHistoryView: isPresentingHistoryView,
-                               dailyLearns: dailyLearns,
-                               todayDailyLearn: todayDailyLearn,
+                               learningSessions: learningSessions,
+                               currentLearningSession: currentLearningSession,
                                currentInterval: currentInterval)
             }
             
         }
         .sheet(isPresented: $isPresentingHistoryView) {
-            DailyLearnHistory(history: dailyLearns)
+            SessionsHistory()
+                .onDisappear {
+                    isPresentingHistoryView = false
+                }
+        }
+        .sheet(isPresented: $isEndSessionPresented) {
+            AddNewSessionView(currentLearningSession: currentLearningSession)
                 .onDisappear {
                     isPresentingHistoryView = false
                 }
@@ -85,6 +82,6 @@ struct TimerView: View {
 struct TimerView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TimerView()
+        TimerView(currentInterval: Interval(), currentLearningSession: LearningSession(intervals: []))
     }
 }
