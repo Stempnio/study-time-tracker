@@ -30,7 +30,7 @@ struct CardView: View {
                     Text("Total time")
                         .bold()
                         .lineLimit(1)
-                    Text("\(session.totalTime)")
+                    Text(secondsToHoursMinutesSecondsString(Int(session.totalTime), short: true))
                 }
                 
                 Spacer()
