@@ -10,7 +10,9 @@ import SwiftUI
 struct SessionsHistory: View {
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var sessions: FetchedResults<LearningSessionModel>
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.startDate, order: .reverse)
+    ]) var sessions: FetchedResults<LearningSessionModel>
     
     var body: some View {
         
