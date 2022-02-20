@@ -10,7 +10,7 @@ import Foundation
 class LearningSession: Identifiable, ObservableObject {
     let id: UUID
     @Published var intervals: [Interval]
-    let startDate: Date
+    var startDate: Date
     
     var totalSessionTime: Double {
         var totalTime: Double = 0

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SessionsHistory: View {
     
+    @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var sessions: FetchedResults<LearningSessionModel>
     
     var body: some View {
@@ -22,14 +23,23 @@ struct SessionsHistory: View {
 
             List {
                 Section("Last sessions") {
-
                     ForEach(sessions) { session in
-                            CardView(session: session)
+                        CardView(session: session)
                     }
+                    .onDelete(perform: deleteSessions)
                 }
             }
         }
         .padding(.vertical)
+    }
+    
+    func deleteSessions(at offsets: IndexSet) {
+        for offset in offsets {
+            let session = sessions[offset]
+            moc.delete(session)
+        }
+        
+        try? moc.save()
     }
 }
 

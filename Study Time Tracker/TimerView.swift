@@ -17,26 +17,33 @@ struct TimerView: View {
     @State private var isPresentingHistoryView = false
     @State private var isEndSessionPresented = false
     @State private var showingCounterNotStoppedAlert = false
+    @State private var showingNoIntervalsStarted = false
     
     
     var body: some View {
         ZStack {
             
             Color.primary.colorInvert().ignoresSafeArea()
-
+            
             VStack {
                 HStack {
                     Button(action: {
+                        guard !currentInterval.intervalStarted else {
+                            showingCounterNotStoppedAlert.toggle()
+                            return
+                        }
+                        
+                        guard currentLearningSession.intervals.count>0 else {
+                            showingNoIntervalsStarted.toggle()
+                            return
+                        }
+                        
                         isEndSessionPresented = true
+                        
                     }) {
-//                        if(currentInterval.intervalStarted) {
-//                            showingCounterNotStoppedAlert.toggle()
-//                        } else {
-                            Label("End session", systemImage: "stop.circle")
-                                .font(.title3)
-//                        }
+                        Label("End session", systemImage: "stop.circle")
+                            .font(.title3)
                     }
-                    // add alert if session is not started or end it if its running
                     
                     Spacer()
                     
@@ -63,6 +70,18 @@ struct TimerView: View {
             }
             
         }
+        .alert("", isPresented: $showingCounterNotStoppedAlert) {
+            Button("GOT THAT", action: {})
+        } message: {
+            Text("Stop the counter in order to end the session!")
+                .bold()
+        }
+        .alert("", isPresented: $showingNoIntervalsStarted) {
+            Button("GOT THAT", action: {})
+        } message: {
+            Text("You haven't started any interval yet! Click 'start learning' to begin")
+                .bold()
+        }
         .sheet(isPresented: $isPresentingHistoryView) {
             SessionsHistory()
                 .onDisappear {
@@ -72,7 +91,7 @@ struct TimerView: View {
         .sheet(isPresented: $isEndSessionPresented) {
             AddNewSessionView(currentLearningSession: currentLearningSession)
                 .onDisappear {
-                    isPresentingHistoryView = false
+                    isEndSessionPresented = false
                 }
         }
     }

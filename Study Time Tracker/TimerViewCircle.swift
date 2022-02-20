@@ -23,6 +23,11 @@ struct TimerViewCircle: View {
                         Button(action: {
                             isCounterPresented.toggle()
                             currentInterval.startInterval()
+                            
+                            // the start of a sessions is a point of a first interval
+                            if(currentLearningSession.intervals.count == 0) {
+                                currentLearningSession.startDate = Date()
+                            }
                         }) {
                             Label("START LEARNING", systemImage: "timer")
                                 .foregroundColor(.primary)

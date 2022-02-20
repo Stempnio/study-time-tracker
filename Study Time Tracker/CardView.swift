@@ -9,41 +9,49 @@ import SwiftUI
 
 struct CardView: View {
     
-    let session: LearningSessionModel
+        let session: LearningSessionModel
     
     var body: some View {
-        VStack {
-            Text(dateToDayMonthYear(date: session.startDate!))
-                .font(.headline)
-            Spacer()
+        
+        VStack(spacing: 10) {
+                        Text("\(session.startDate?.formatted() ?? Date.distantPast.formatted())")
+                            .font(.headline)
             
-            VStack(spacing: 3) {
-                HStack {
-                    Text("TOTAL TIME:")
+            HStack {
+                VStack {
+                    Text("Name")
                         .bold()
-                    Spacer()
-                    Text(secondsToHoursMinutesSecondsString(Int(session.totalTime), short: true))
-                    Spacer()
+                    Text(session.name ?? "none")
                 }
                 
-                HStack() {
-                    Text("INTERVALS:")
+                Spacer()
+                
+                VStack {
+                    Text("Total time")
                         .bold()
-                    Spacer()
+                        .lineLimit(1)
+                    Text("\(session.totalTime)")
+                }
+                
+                Spacer()
+                
+                VStack {
+                    Text("Intervals")
+                        .bold()
+                        .lineLimit(1)
                     Text("\(session.numberOfIntervals)")
-                    Spacer()
-                    
                 }
             }
             
         }
         .padding(.horizontal)
+        
     }
 }
 //
 //struct CardView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CardView()
-//            .previewLayout(.fixed(width: 400, height: 70))
+//            .previewLayout(.fixed(width: 400, height: 100))
 //    }
 //}
