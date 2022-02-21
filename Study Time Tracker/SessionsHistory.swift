@@ -14,23 +14,15 @@ struct SessionsHistory: View {
         SortDescriptor(\.startDate, order: .reverse)
     ]) var sessions: FetchedResults<LearningSessionModel>
     
+    @State private var sessionName: String = ""
+    
     var body: some View {
         
         VStack {
-            
-            Text("THE LONGEST SESSION SO FAR")
-                .bold()
-            
-            Text("todo")
+            TextField("Search session by name", text: $sessionName)
+                .padding()
 
-            List {
-                Section("Last sessions") {
-                    ForEach(sessions) { session in
-                        CardView(session: session)
-                    }
-                    .onDelete(perform: deleteSessions)
-                }
-            }
+            FilteredList(filter: sessionName)
         }
         .padding(.vertical)
     }

@@ -15,6 +15,9 @@
 		635B78FF27C188D300B32E66 /* AddNewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B78FE27C188D300B32E66 /* AddNewSessionView.swift */; };
 		636907B327BFC65C00BCC9DC /* TimerViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */; };
 		636907B527BFC66900BCC9DC /* TimerViewLower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636907B427BFC66900BCC9DC /* TimerViewLower.swift */; };
+		638199E127C40B140037773F /* LearningSessionModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638199DF27C40B140037773F /* LearningSessionModel+CoreDataClass.swift */; };
+		638199E227C40B140037773F /* LearningSessionModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638199E027C40B140037773F /* LearningSessionModel+CoreDataProperties.swift */; };
+		638199E427C417460037773F /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638199E327C417460037773F /* FilteredList.swift */; };
 		63D1B6DA27BD294400B57A11 /* StudyTimeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */; };
 		63D1B6DC27BD294400B57A11 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B6DB27BD294400B57A11 /* TimerView.swift */; };
 		63D1B6DE27BD294500B57A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D1B6DD27BD294500B57A11 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		635B78FE27C188D300B32E66 /* AddNewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSessionView.swift; sourceTree = "<group>"; };
 		636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCircle.swift; sourceTree = "<group>"; };
 		636907B427BFC66900BCC9DC /* TimerViewLower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewLower.swift; sourceTree = "<group>"; };
+		638199DF27C40B140037773F /* LearningSessionModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningSessionModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		638199E027C40B140037773F /* LearningSessionModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningSessionModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		638199E327C417460037773F /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 		63D1B6D627BD294400B57A11 /* Study Time Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Time Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTimeTrackerApp.swift; sourceTree = "<group>"; };
 		63D1B6DB27BD294400B57A11 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -71,17 +77,18 @@
 		63D1B6D827BD294400B57A11 /* Study Time Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				63D1B6E727BD296600B57A11 /* Models */,
-				63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */,
-				6328B01327BEA9F100557165 /* CardView.swift */,
-				63D1B6DB27BD294400B57A11 /* TimerView.swift */,
-				636907B427BFC66900BCC9DC /* TimerViewLower.swift */,
-				636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */,
-				6328B01127BEA93D00557165 /* SessionsHistory.swift */,
 				635B78FE27C188D300B32E66 /* AddNewSessionView.swift */,
+				6328B01327BEA9F100557165 /* CardView.swift */,
+				638199E327C417460037773F /* FilteredList.swift */,
+				6328B01127BEA93D00557165 /* SessionsHistory.swift */,
+				63D1B6D927BD294400B57A11 /* StudyTimeTrackerApp.swift */,
+				63D1B6DB27BD294400B57A11 /* TimerView.swift */,
+				636907B227BFC65C00BCC9DC /* TimerViewCircle.swift */,
+				636907B427BFC66900BCC9DC /* TimerViewLower.swift */,
 				63D1B6DD27BD294500B57A11 /* Assets.xcassets */,
-				63D1B6DF27BD294500B57A11 /* Preview Content */,
 				635B78F927C166DF00B32E66 /* CoreDataModel.xcdatamodeld */,
+				63D1B6E727BD296600B57A11 /* Models */,
+				63D1B6DF27BD294500B57A11 /* Preview Content */,
 			);
 			path = "Study Time Tracker";
 			sourceTree = "<group>";
@@ -97,6 +104,8 @@
 		63D1B6E727BD296600B57A11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				638199DF27C40B140037773F /* LearningSessionModel+CoreDataClass.swift */,
+				638199E027C40B140037773F /* LearningSessionModel+CoreDataProperties.swift */,
 				63D1B6E827BD299900B57A11 /* LearningSession.swift */,
 				63D1B6EA27BD2B5C00B57A11 /* Interval.swift */,
 				635B78F527C129DA00B32E66 /* Utils.swift */,
@@ -175,7 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638199E227C40B140037773F /* LearningSessionModel+CoreDataProperties.swift in Sources */,
 				6328B01427BEA9F100557165 /* CardView.swift in Sources */,
+				638199E427C417460037773F /* FilteredList.swift in Sources */,
 				63D1B6E927BD299900B57A11 /* LearningSession.swift in Sources */,
 				6328B01227BEA93D00557165 /* SessionsHistory.swift in Sources */,
 				63D1B6DC27BD294400B57A11 /* TimerView.swift in Sources */,
@@ -184,6 +195,7 @@
 				635B78FD27C17CDE00B32E66 /* DataController.swift in Sources */,
 				635B78FB27C166DF00B32E66 /* CoreDataModel.xcdatamodeld in Sources */,
 				63D1B6EB27BD2B5C00B57A11 /* Interval.swift in Sources */,
+				638199E127C40B140037773F /* LearningSessionModel+CoreDataClass.swift in Sources */,
 				635B78F627C129DA00B32E66 /* Utils.swift in Sources */,
 				636907B327BFC65C00BCC9DC /* TimerViewCircle.swift in Sources */,
 				63D1B6DA27BD294400B57A11 /* StudyTimeTrackerApp.swift in Sources */,

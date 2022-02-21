@@ -14,14 +14,14 @@ struct CardView: View {
     var body: some View {
         
         VStack(spacing: 10) {
-                        Text("\(session.startDate?.formatted() ?? Date.distantPast.formatted())")
+            Text("\(session.wrappedStartDate)")
                             .font(.headline)
             
             HStack {
                 VStack {
                     Text("Name")
                         .bold()
-                    Text(session.name ?? "none")
+                    Text(session.wrappedName)
                 }
                 
                 Spacer()
