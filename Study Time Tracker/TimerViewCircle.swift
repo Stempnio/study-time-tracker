@@ -13,7 +13,9 @@ struct TimerViewCircle: View {
     @ObservedObject var currentLearningSession: LearningSession
     @ObservedObject var currentInterval: Interval
 
-    
+    @State private var animationScale = 1.0
+    @State private var rotationAmount = 0.0
+
     var body: some View {
             Circle()
             .fill(.primary)
@@ -28,18 +30,29 @@ struct TimerViewCircle: View {
                             if(currentLearningSession.intervals.count == 0) {
                                 currentLearningSession.startDate = Date()
                             }
+                            
+                            withAnimation {
+                                animationScale = 2
+                                rotationAmount += 360
+                            }
                         }) {
                             Label("START LEARNING", systemImage: "timer")
                                 .foregroundColor(.primary)
                                 .colorInvert()
                                 .font(.title2)
+                            
 
                         }
+
                     } else {
                         Button(action: {
                             isCounterPresented.toggle()
                             currentInterval.endInterval()
                             currentLearningSession.intervals.append(Interval(interval: currentInterval))
+                            
+                            withAnimation {
+                                animationScale = 1
+                            }
                         }) {
                             Label("STOP LEARNING", systemImage: "timer")
                                 .foregroundColor(.primary)
@@ -56,6 +69,22 @@ struct TimerViewCircle: View {
                         .colorInvert()
                         .padding(5)
                 })
+                .rotation3DEffect(
+                    .degrees(rotationAmount),
+                    axis: (x: 1,
+                           y: 1,
+                           z: 1)
+                )
+                .overlay(content: {
+                    if isCounterPresented {
+                        Circle()
+                            .stroke()
+                            .foregroundColor(.primary)
+                            .opacity(2 - animationScale)
+                            .scaleEffect(animationScale)
+                            .animation(.default, value: animationScale)
+                    }
+                })
                 .padding(50)
 
     }
@@ -63,7 +92,7 @@ struct TimerViewCircle: View {
 
 struct TimerViewUpper_Previews: PreviewProvider {
     static var previews: some View {
-        TimerViewCircle(isCounterPresented: .constant(false),
+        TimerViewCircle(isCounterPresented: .constant(true),
                         currentLearningSession: LearningSession(intervals: []),
                         currentInterval: Interval())
     }
