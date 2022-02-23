@@ -16,6 +16,9 @@ struct TimerViewLower: View {
     @ObservedObject var currentLearningSession: LearningSession
     @ObservedObject var currentInterval: Interval
     
+    @State private var animationAmountUpper = 0.1
+    @State private var animationAmountLower = 0.1
+    
     var body: some View {
         VStack {
             if isCounterPresented {
@@ -34,10 +37,16 @@ struct TimerViewLower: View {
                             .border(Color.primary, width: 2)
                         Text(currentInterval.elapsedTimeFormattedString)
                             .font(.title2)
-                        
-                        
                     }
                 }
+                .scaleEffect(animationAmountUpper)
+                .animation(.default, value: animationAmountUpper)
+                .onAppear(perform: {
+                    animationAmountUpper = 1.0
+                })
+                .onDisappear(perform: {
+                    animationAmountUpper = 0.1
+                })
                 .colorInvert()
             } else {
                 VStack {
@@ -61,6 +70,14 @@ struct TimerViewLower: View {
                         }
                     }
                 }
+                .scaleEffect(animationAmountLower)
+                .animation(.default, value: animationAmountLower)
+                .onAppear(perform: {
+                    animationAmountLower = 1.0
+                })
+                .onDisappear(perform: {
+                    animationAmountLower = 0.1
+                })
                 .foregroundColor(.primary)
                 
             }
